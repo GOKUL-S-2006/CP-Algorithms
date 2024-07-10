@@ -1,0 +1,21 @@
+//Creating sieve
+#include <bits/stdc++.h>
+#define lli long long int
+using namespace std;
+const int N=1000000;
+int arr[N+1];
+void createsieve()
+{
+    arr[0] = false;
+    arr[1] = false;
+    for (int i = 2; i <= N; i++) {
+        arr[i] = true;
+    }
+    for (int i = 2; i * i <= N; i++) {
+        if (arr[i]) {
+            for (int j = i * i; j <= N; j += i) {
+                arr[j] = false;
+            }
+        }
+    }
+}
